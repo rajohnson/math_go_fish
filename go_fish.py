@@ -6,9 +6,11 @@ colorama.init()
 
 
 class Deck:
-    def __init__(self):
+    def __init__(self, jokers_as_zeros=False):
         suit_cards = [i for i in range(1, 13 + 1)]
         self.cards = suit_cards * 4
+        if jokers_as_zeros:
+            self.cards.extend([0, 0])
 
     def remove(self, card):
         try:
@@ -20,8 +22,8 @@ class Deck:
 
 
 class Game:
-    def __init__(self):
-        self.deck = Deck()
+    def __init__(self, jokers=False):
+        self.deck = Deck(jokers)
 
     def remove_pair(self, pair):
         for card in pair:
@@ -75,4 +77,4 @@ class Game:
 
 
 if __name__ == "__main__":
-    Game().run()
+    Game(jokers=True).run()
