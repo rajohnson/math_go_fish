@@ -1,5 +1,8 @@
 import random
 import textwrap
+import colorama
+
+colorama.init()
 
 
 class Deck:
@@ -42,9 +45,13 @@ class Game:
 
             choice = input(prompt)
 
-            if choice == "1":
-                print(self.possible_product())
-            elif choice == "2":
+            if choice == "":
+                print(
+                    colorama.Fore.GREEN
+                    + f"{self.possible_product()}"
+                    + colorama.Style.RESET_ALL
+                )
+            elif choice == "1":
                 pair = input(
                     "Enter the values of the pair to remove seperated with whitespace.\n> "
                 )
