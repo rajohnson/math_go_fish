@@ -33,8 +33,8 @@ class Game:
             prompt = textwrap.dedent(
                 """            
             Choose an option:
-            1: New target
-            2: Remove pair
+            Enter: New target
+            1: Remove pair
             8: Print deck
             9: Exit
             > """
